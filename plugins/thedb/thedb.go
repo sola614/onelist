@@ -45,7 +45,7 @@ func SearchTheDb(key string, tv bool) (ThedbSearchRsp, error) {
 	if !tv {
 		key = extract.ExtractMovieName(key)
 	}
-	key = url.QueryEscape(name)
+	key = url.QueryEscape(key)
 	api := fmt.Sprintf("%s/search/movie?api_key=%s&language=zh&page=1&query=%s", TheApi, config.KeyDb, key)
 	if tv {
 		api = fmt.Sprintf("%s/search/tv?api_key=%s&language=zh&page=1&query=%s", TheApi, config.KeyDb, key)
