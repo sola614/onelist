@@ -11,6 +11,7 @@ import (
 	"regexp"
 	"strings"
 	"time"
+	"net/url"
 
 	"github.com/msterzhang/onelist/api/database"
 	"github.com/msterzhang/onelist/api/models"
@@ -41,6 +42,7 @@ var (
 
 // 搜索资源
 func SearchTheDb(key string, tv bool) (ThedbSearchRsp, error) {
+	key = url.QueryEscape(name)
 	if !tv {
 		key = extract.ExtractMovieName(key)
 	}
