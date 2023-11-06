@@ -1,5 +1,5 @@
 # 基于原版修改说明
-1、tv刮削时的name获取改为匹配"SXXEXX"前面字段  
+1、tv刮削时的name获取由原来的匹配数字和汉字改为匹配"SXXEXX"前面字段，如"overtake! S01E01.mp4"会获得"overtake!"去tmdb获取数据  
 2、调用tmdb接口时对影视名称进行url转码  
 
 # 原版说明
