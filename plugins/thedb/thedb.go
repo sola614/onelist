@@ -505,10 +505,19 @@ func RunTheTvWork(file string, GalleryUid string) (int, error) {
 	fileName := filepath.Base(p)
 	fileType := path.Ext(fileName)
 	name := strings.ReplaceAll(fileName, fileType, "")
-	re := regexp.MustCompile(`[\p{Han}\d{1,2}]+`)
-	matches := re.FindAllString(name, -1)
-	if len(matches) > 0 {
-		name = matches[0]
+	// re := regexp.MustCompile(`[\p{Han}\d{1,2}]+`)
+	// matches := re.FindAllString(name, -1)
+	// if len(matches) > 0 {
+	// 	name = matches[0]
+	// }
+	// 创建正则表达式来匹配SXXEXX前面部分
+	re := regexp.MustCompile(`^(.*?)\sS\d+E\d+`)
+	// 在字符串中查找匹配
+	matches := re.FindStringSubmatch(name)
+	if len(matches) > 1 {
+		name = matches[1]
+	}else{
+		return 0, errors.New("name format error")
 	}
 	data, err := SearchTheDb(name, true)
 	if err != nil {
