@@ -1,4 +1,9 @@
-# onelist
+# 基于原版修改说明
+1、tv刮削时的name获取改为匹配"SXXEXX"前面字段  
+2、调用tmdb接口时对影视名称进行url转码  
+
+# 原版说明
+
 一个类似emby的专注于刮削alist聚合网盘形成影视媒体库的程序。
 
 ![](./docs/imgs/01.png)
