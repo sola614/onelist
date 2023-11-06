@@ -524,7 +524,8 @@ func RunTheTvWork(file string, GalleryUid string) (int, error) {
 		return 0, err
 	}
 	if len(data.Results) == 0 {
-		return 0, errors.New("tv not found")
+		errorMessage := "tv not found, name: " + name
+		return 0, errors.New(errorMessage)
 	}
 	id := data.Results[0].ID
 	thetv, err := TheTvDb(id, file, GalleryUid)
