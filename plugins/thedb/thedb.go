@@ -42,10 +42,10 @@ var (
 
 // 搜索资源
 func SearchTheDb(key string, tv bool) (ThedbSearchRsp, error) {
-	key = url.QueryEscape(name)
 	if !tv {
 		key = extract.ExtractMovieName(key)
 	}
+	key = url.QueryEscape(name)
 	api := fmt.Sprintf("%s/search/movie?api_key=%s&language=zh&page=1&query=%s", TheApi, config.KeyDb, key)
 	if tv {
 		api = fmt.Sprintf("%s/search/tv?api_key=%s&language=zh&page=1&query=%s", TheApi, config.KeyDb, key)
